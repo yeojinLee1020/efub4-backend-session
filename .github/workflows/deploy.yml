@@ -6,7 +6,7 @@ on:
 
 env:
   AWS_REGION: ap-northeast-2
-  S3_BUCKET_NAME: efub-week10-github-actions-s3-bucket10
+  S3_BUCKET_NAME: efub-blog-github-actions-s3-bucket10
   CODE_DEPLOY_APPLICATION_NAME: efub-week10-codedeploy-app
   CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: efub-week10-codedeploy-deployment-group
 
@@ -55,7 +55,7 @@ jobs:
             --application-name ${{ env.CODE_DEPLOY_APPLICATION_NAME }} \
             --ignore-hidden-files \
             --s3-location s3://$S3_BUCKET_NAME/$GITHUB_SHA.zip \
-            --source .
+            --source ./blog
 
       - name: Deploy to AWS EC2 from S3
         run: |
